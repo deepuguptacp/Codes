@@ -1,0 +1,5 @@
+Ram Salary:- 120000 age:- 35 Post:- HR
+Shyam salary:- 10000 age:-32 Post:- Employee
+Mohan Salary:- 20000 age:- 18 Post:- Empoyee
+Sohan Salary:- 20000 age:- 22 Post:- Employee
+
