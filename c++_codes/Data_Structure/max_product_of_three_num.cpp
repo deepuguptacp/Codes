@@ -2,9 +2,9 @@
 #include<iostream>
 #include<cmath>
 using namespace std;
-void MoreComplex(int [], int );
-void sort(int [], int , int);
-void LessComplex(int [], int );
+void MoreComplex(int [], int );         // Function for time complexity O(n^3)
+void sort(int [], int , int);           // Function to sort the elements of the array
+void LessComplex(int [], int );         // Function for time Complexity O(nlogn)
 int main(){
     int n;
     cout<<"Enter the length of the array : ";
@@ -22,7 +22,7 @@ int main(){
         cout<<"3.EXIT"<<endl;
         cout<<"Enter your choice : ";
         cin>>choice;
-        switch(choice){
+        switch(choice){                 // Switch case To provide user better time complexity
             case 1:
                 MoreComplex(a, n);
                 break;
