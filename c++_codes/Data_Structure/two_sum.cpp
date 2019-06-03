@@ -16,15 +16,15 @@ void MoreComplex(int [], int, int);
 void sort(int [], int , int);
 void LessComplex(int [], int, int);
 int main(){
-    int n, target;
+    int n, target, i, choice;
     cout<<"Enter the number elements in the array : ";
     cin>>n;
-    cout<<"Enter the target number : ";
-    cin>>target;
     int a[n];
     cout<<"Enter the elements of the array : ";
     for(i=0; i<n; i++)
         cin>>a[i];
+    cout<<"Enter the target number : ";
+    cin>>target;
     while(1){
         cout<<"--------------------------------"<<endl;
         cout<<"Achieveing the target"<<endl;
@@ -50,6 +50,17 @@ int main(){
         }
     }
     return 0;
+}
+void MoreComplex(int a[], int n, int target){
+    int i, j;
+    for(i=0; i<n; i++){
+        for(j=i+1; j<n; j++){
+            int temp = a[i] + a[j];
+            if(temp == target){
+                cout<<"Target Achieved : {"<<a[i]<<", "<<a[j]<<"}"<<endl;
+            }
+        }
+    }
 }
 void sort(int a[], int low, int high){
     int pivot, i, j, temp;
@@ -78,11 +89,24 @@ void sort(int a[], int low, int high){
     }
 }
 void LessComplex(int a[], int n, int target){
-    cout<<"time Complexity O(nlog(n))"<<endl;
+    cout<<"Time Complexity O(nlog(n))"<<endl;
     sort(a, 0, n-1);
     cout<<"Sorted array : "<<endl;
-    for(int i=0; i<n; i++)
-        cout<<a[i]<<"  ";
+    for(int k=0; k<n; k++)
+        cout<<a[k]<<"  ";
     cout<<"\n";
-
+    int i=0, j=n-1, temp;
+    while(i>j){
+        temp = a[i] + a[j];
+        if(temp == target){
+            cout<<"Target Achieved : {"<<a[i]<<", "<<a[j]<<"}"<<endl;
+            break;
+        }
+        else if(temp>target){
+            --j;
+        }
+        else{    
+            ++i;
+        }
+    }
 }
