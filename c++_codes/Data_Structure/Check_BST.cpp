@@ -80,7 +80,7 @@ int main()
             bst.inorder(root);
             cout<<endl;
             break;
-	case 4:
+	    case 4:
             cout<<"Preorder Traversal of BST:"<<endl;
             bst.preorder(root);
             cout<<endl;
