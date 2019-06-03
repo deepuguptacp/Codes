@@ -1,3 +1,4 @@
+/*Merge two arrays and short them OR in other words Merge two Arrays in Sorted way*/
 #include <stdio.h>
 
 // Function to merge X[0..m] and Y[0..n] to X[0..m+n+1]
