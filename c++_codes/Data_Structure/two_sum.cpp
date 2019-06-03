@@ -11,7 +11,10 @@
 #include<cmath>
 #include<cstdio>
 using namespace std;
+void MoreComplex(int [], int, int);
 
+void sort(int [], int , int);
+void LessComplex(int [], int, int);
 int main(){
     int n, target;
     cout<<"Enter the number elements in the array : ";
@@ -24,7 +27,7 @@ int main(){
         cin>>a[i];
     while(1){
         cout<<"--------------------------------"<<endl;
-        cout<<"Acieveing the target"<<endl;
+        cout<<"Achieveing the target"<<endl;
         cout<<"--------------------------------"<<endl;
         cout<<"1.For time Complexity O(n^2) "<<endl;
         cout<<"2.For time Complexity O(nlog(n)) "<<endl;
@@ -33,10 +36,10 @@ int main(){
         cin>>choice;
         switch(choice){                 // Switch case To provide user better time complexity
             case 1:
-                MoreComplex(a, n);
+                MoreComplex(a, n, target);
                 break;
             case 2:
-                LessComplex(a, n);
+                LessComplex(a, n, target);
                 break;
             case 3:
                 cout<<"Thank You"<<endl;
@@ -46,4 +49,40 @@ int main(){
                 exit(1);
         }
     }
+    return 0;
+}
+void sort(int a[], int low, int high){
+    int pivot, i, j, temp;
+    if (low < high) {
+        pivot = low;
+        i = low;
+        j = high;
+    while (i < j) {
+        while (a[i] <= a[pivot] && i <= high) {
+            i++;
+        }
+        while (a[j] > a[pivot] && j >= low) {
+            j--;
+        }
+        if (i < j) {
+            temp = a[i];
+            a[i] = a[j];
+            a[j] = temp;
+        }
+    }
+    temp = a[j];
+    a[j] = a[pivot];
+    a[pivot] = temp;
+    sort(a, low, j - 1);        // Recursive call of the function.
+    sort(a, j + 1, high);       // Recursive call of the function.
+    }
+}
+void LessComplex(int a[], int n, int target){
+    cout<<"time Complexity O(nlog(n))"<<endl;
+    sort(a, 0, n-1);
+    cout<<"Sorted array : "<<endl;
+    for(int i=0; i<n; i++)
+        cout<<a[i]<<"  ";
+    cout<<"\n";
+
 }
