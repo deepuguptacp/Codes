@@ -3,8 +3,8 @@
 
 using namespace std;
 
-void MoreComplex(int [], int , int );
-void LessComplex(int [], int , int );
+void SecondOrderComplexity(int [], int , int );
+void LinearComplexity(int [], int , int );
 
 int main(){
     int i, key, n, choice;
@@ -12,8 +12,9 @@ int main(){
     cin>>n;
     int array[n];
     cout<<"Enter the elements of the array : ";
-    for(i=0; i<n; i++)
+    for(i=0; i<n; i++){
         cin>>array[i];
+    } 
     cout<<"Enter the at most difference between the number's index : ";
     cin>>key;
     while(1){
@@ -27,36 +28,36 @@ int main(){
         cin>>choice;
         switch(choice){                 // Switch case To provide user better time complexity
             case 1:
-                MoreComplex(array, n, key);
+                SecondOrderComplexity(array, n, key);
                 break;
             case 2:
-                LessComplex(array, n, key);
+                LinearComplexity(array, n, key);
                 break;
             case 3:
                 cout<<"Thank You"<<endl;
                 exit(1);
             default :
                 cout<<"Wrong choice"<<endl;
-                exit(1);
         }
     }
     cout<<"\n";
     return 0;
 }
 
-void  MoreComplex(int array[], int n, int key){
+void  SecondOrderComplexity(int array[], int n, int key){
     cout<<"With time complexity O(n^2) "<<endl;
     int i, j;
     for(i=0; i<n; i++){
         for(j=i+1; j<=n; j++){
-            if(array[i] == array[j] && abs(i-j) <= key)
+            if(array[i] == array[j] && abs(i-j) <= key){
                 cout<<"The position of requiered elements is "<<i<<" and "<<j<<endl;
+            }
         }
     }
     cout<<"\n";
 }
 
-void LessComplex(int array[], int n, int k){
+void LinearComplexity(int array[], int n, int k){
     int i, j;
-    
+
 }
