@@ -55,3 +55,8 @@ void  MoreComplex(int array[], int n, int key){
     }
     cout<<"\n";
 }
+
+void LessComplex(int array[], int n, int k){
+    int i, j;
+    
+}
