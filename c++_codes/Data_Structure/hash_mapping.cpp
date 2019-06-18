@@ -59,6 +59,8 @@ void  SecondOrderComplexity(int array[], int n, int key){
 }
 
 void LinearComplexity(int array[], int n, int k){
-    int i, j;
-
+    int i, j, hash[n];
+    for(i=0; i<n; i++){
+        
+    }
 }
