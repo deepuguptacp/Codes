@@ -62,7 +62,7 @@ int main(){
         cin>>arr[i];
     }*/
     string str1, str2;
-    
+
     cin>>str1>>str2;
     cout<<summation(str1, str2)<<"\n"<<endl;
     cout<<product(str1, 7)<<"\n"<<endl;
