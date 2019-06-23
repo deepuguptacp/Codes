@@ -42,7 +42,7 @@ string product(string a, int n){
     int i=a.length()-1;
     while(i>=0 ){
         int x=a[i--]-'0';
-        int mul = x * n;
+        int mul = (x * n) + carry;
         int data=mul%10;
         carry=mul/10;
         str.push_back(data+'0');
