@@ -1,4 +1,8 @@
-/*Merge Sort OR Combined sorting technique*/
+/*Merge Sort OR Combined sorting technique
+In practice, we usually use counting sort algorithm when have k = O(n), 
+in which case running time is O(n). The Counting sort is a stable sort 
+i.e., multiple keys with the same value are placed in the sorted array 
+in the same order that they appear in the input array.*/
 #include<iostream>
 #include<cstdlib>
 using namespace std;
