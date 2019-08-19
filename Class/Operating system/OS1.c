@@ -9,7 +9,8 @@ int main(){
     printf("fd1 = %d", fd1);
     close(fd1);
     printf("\n\nfd1 = %d", fd1);
+    lseek(fd1, c, sizeof(int))
+    
     printf("\n");
-
     return 0;
 }
