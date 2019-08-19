@@ -2,19 +2,12 @@
 #include<string.h> 
 #include<unistd.h> 
 #include<fcntl.h>
-int main(){
-    int fd[2]; 
-    char buf1[12] = "hello world\n"; 
-    char buf2[12]; 
-
-    fd[0] = open("input.txt", O_RDWR);         
-    fd[1] = open("input.txt", O_RDWR); 
-      
-    write(fd[0], buf1, strlen(buf1));          
-    write(1, buf2, read(fd[1], buf2, 12)); 
-  
-    close(fd[0]); 
-    close(fd[1]); 
-  
+int main(){ 
+    int fd0 = open("input.txt", O_RDONLY);         
+    int fd1 = creat("output.txt", O_RDWR); 
+    char *c;
+    while(read(fd0, c, sizeof(char))){
+        write(fd1, c, sizeof(char));
+    }
     return 0; 
 }
