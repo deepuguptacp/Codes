@@ -4,12 +4,11 @@
 
 using namespace std;
 int main(){
-    long long n, i, a;
+    long long n, i=0, a=0;
     cin>>n;
-    vector<int> arr, b;
+    vector<long long> arr(n), b;
     for(i=0; i<n; i++){
-        cin>>a;
-        arr.push_back(a);
+        cin>>arr[i];
     }
     sort(arr.begin(), arr.end());
     for(i=0; i<n; i++){
