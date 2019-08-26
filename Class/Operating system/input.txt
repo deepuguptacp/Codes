@@ -1,1 +1,1 @@
-HEY BOY.
+Input the processes along with their burst time.
