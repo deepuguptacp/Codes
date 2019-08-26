@@ -23,6 +23,14 @@ int main(){
     for(i=0; i<n; i++){
         cout<<"  "<<processNo[i]<<"\t\t  "<<burstTime[i]<<"\t\t  "<<waitingTime[i]<<"\t\t  "<<turnAroundTime[i]<<endl;
     }
-    float avgWaitingTime = 
+    float avgWaitingTime=0, avgTurnAroundTime=0;
+    for(i=0; i<n; i++){
+        avgWaitingTime+=waitingTime[i];
+        avgTurnAroundTime+=turnAroundTime[i];
+    }
+    avgWaitingTime=(float)avgTurnAroundTime/n;
+    avgTurnAroundTime=(float)avgTurnAroundTime/n;
+    cout<<"Average Waiting time = "<<avgWaitingTime<<endl;
+    cout<<"Average Turn Around Time = "<<avgTurnAroundTime<<endl;
     return 0;
 }
