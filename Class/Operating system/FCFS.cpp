@@ -8,7 +8,7 @@ int main(){
     cin>>n;
     int burstTime[n], processNo[n], turnAroundTime[n], waitingTime[n];
     for(i=0; i<n; i++){
-        cout<<"Burst Time for Process "<<i+1<<" : "<<endl;
+        cout<<"Burst Time for Process "<<i+1<<" : ";
         cin>>burstTime[i];
         processNo[i]=i+1;
     }
@@ -28,7 +28,7 @@ int main(){
         avgWaitingTime+=waitingTime[i];
         avgTurnAroundTime+=turnAroundTime[i];
     }
-    avgWaitingTime=(float)avgTurnAroundTime/n;
+    avgWaitingTime=(float)avgWaitingTime/n;
     avgTurnAroundTime=(float)avgTurnAroundTime/n;
     cout<<"Average Waiting time = "<<avgWaitingTime<<endl;
     cout<<"Average Turn Around Time = "<<avgTurnAroundTime<<endl;
