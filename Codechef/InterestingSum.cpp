@@ -7,7 +7,7 @@ int main(){
     int t;
     cin>>t;
     while(t--){
-        int N, K, i=0, temp=0, j=0, sum=0, minsum=0;
+        int N, K, i=0, minsum=0, count=1;
         cin>>N>>K;
         int A[N];
         for(i=0; i<N; i++)
@@ -15,7 +15,13 @@ int main(){
         sort(A, A + N);
         for(i=0; i<K; i++)
             minsum += A[i];
-        
+        int curr_sum = minsum; 
+        for (int i=K; i<N; i++){ 
+            curr_sum += A[i] - A[i-K];
+            if(curr_sum == minsum)
+                count++;
+        }
+        cout<<count<<endl;
     }
     return 0;
 }
