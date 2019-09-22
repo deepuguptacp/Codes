@@ -1,40 +1,41 @@
 //https://www.codechef.com/SEPT19B/problems/CHEFINSQ
-#include <iostream>
-#include<algorithm>
-using namespace std; 
-int minsum=0, temp=0;
-void combinationUtil(int arr[], int n, int r, int index, int data[], int i);
-void printCombination(int arr[], int n, int r) {
-	int data[r]; 
-	combinationUtil(arr, n, r, 0, data, 0); 
+#include<iostream>
+using namespace std;
+unsigned long long int ncr(int n,int r){   
+    unsigned long long int ans=1;
+    if(r>n-r)
+    r=n-r;
+    
+    for(int i=0;i<r;i++){
+       ans=ans*(n-i);
+       ans/=(i+1);
+    }
+    return ans;
 }
-void combinationUtil(int arr[], int n, int r, int index, int data[], int i){
-	if (index == r){
-        int count=0;
-		for (int j = 0; j < r; j++){
-			count=count+data[j];
-        }
-        if(count==minsum)
-            temp++; 
-	}
-	//data[index] = arr[i]; 
-	combinationUtil(arr, n, r, index + 1, data, i + 1);
-	combinationUtil(arr, n, r, index, data, i + 1); 
-}
-int main(){ 
-	int t;
+int main(){
+    int t;
     cin>>t;
     while(t--){
-        int N, K, i=0, count=0;
-        cin>>N>>K;
-        int A[N];
-        for(i=0; i<N; i++)
-            cin>>A[i];
-        sort(A, A + N);
-        for(i=0; i<K; i++)
-            minsum += A[i];
-        printCombination(A, N, K);
-        cout<<temp<<endl;
+        int n,k;
+        cin>>n>>k;
+        int arr[n];
+        for(int i=0;i<n;i++)
+            cin>>arr[i];
+        sort(arr,arr+n); 
+        int last=arr[0],last_count=1,i;
+        for(i=1;i<k;i++){
+            if(arr[i]!=last){
+                last_count=1;
+                last=arr[i];
+            }
+            else
+                last_count++;
+        }
+        int r=last_count;
+        while(arr[i]==last&&i<n){
+            last_count++;
+            i++;
+        }
+        cout<<ncr(last_count,r)<<endl;
     }
-    return 0;
-} 
+}
