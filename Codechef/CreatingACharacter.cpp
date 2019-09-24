@@ -8,7 +8,13 @@ int main(){
     while(T--){
         ll str, integer, exp;
         cin>>str>>integer>>exp;
-        
+        ll i=0;
+        ll temp1, temp, temp=0;
+        for(i=0; i<exp; i++){
+            temp1 = str + i;
+            temp2 = integer + (exp-i);
+            if()
+        }
 
     }
     return 0;
