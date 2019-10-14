@@ -1,0 +1,10 @@
+Q1.
+	consider 6 memory partitions of sizes 200KB, 400KB, 600Kb, 500Kb, 300KB, 250KB
+	These partiotions need to be allocated for processors of sizes 375KB, 210KB, 468KB,
+	491KB using:- 
+		i) First Fit
+   	   ii) Best Fit
+      iii) Next Fit
+       iv) Worst Fit
+	Desing a program for that.
+	
