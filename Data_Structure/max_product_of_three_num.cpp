@@ -1,10 +1,12 @@
 /*Find the maximum product of three numbers of an array*/
 #include<iostream>
 #include<cmath>
+#include<algorithm>
 using namespace std;
 void MoreComplex(int [], int );         // Function for time complexity O(n^3)
 void sort(int [], int , int);           // Function to sort the elements of the array
 void LessComplex(int [], int );         // Function for time Complexity O(nlogn)
+void easiest(int [], int );
 int main(){
     int n;
     cout<<"Enter the length of the array : ";
@@ -19,7 +21,8 @@ int main(){
         cout<<"--------------------------------"<<endl;
         cout<<"1.For time Complexity O(n^3) "<<endl;
         cout<<"2.For time Complexity O(nlog(n)) "<<endl;
-        cout<<"3.EXIT"<<endl;
+        cout<<"3. The easiest way "<<endl;
+        cout<<"4.EXIT"<<endl;
         cout<<"Enter your choice : ";
         cin>>choice;
         switch(choice){                 // Switch case To provide user better time complexity
@@ -30,6 +33,9 @@ int main(){
                 LessComplex(a, n);
                 break;
             case 3:
+                easiest(a, n);
+                break;
+            case 4:
                 cout<<"Thank You"<<endl;
                 exit(1);
             default :
@@ -92,4 +98,9 @@ void LessComplex(int a[], int n){
     product1 = a[0] * a[1] * a[n-1];
     product2 = a[n-3] * a[n-2] * a[n-1];
     cout<<"maximum = "<<max(product1, product2)<<endl;
+}
+
+void easiest(int A[], int n){
+    sort(A, A+n);
+    cout<<A[n-1] * A[n-2] * A[n-3]<<endl;
 }
