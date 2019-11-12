@@ -68,11 +68,11 @@ void mdfa(int a,int b){
 				if(v==a){
 					cout<<"q("<<u<<")\t";
 					if(w==1)
-					cout<<"NULL"<<endl;
+						cout<<"NULL"<<endl;
 				}
 				else if(v==b){
 					if(w==1)
-					cout<<"NULL\t";
+						cout<<"NULL\t";
 					cout<<"q("<<u<<")\t"<<endl;
 				}
 			}
@@ -86,28 +86,32 @@ int main(){
 	char ch;
 	cout<<"DFA for alternate sequence of a and b\n";
 	cout<<"RE=(ab)*/(ba)*/a(ba)*/b(ab)*"<<endl;
-	cout<<"Enter the value of a and b"<<endl;
+	cout<<"Enter the value of a and b : ";
 	cin>>a>>b;
 	do{
 		cout<<"1. Construct the dfa and display it"<<endl;
 		cout<<"2. Display the total no of states in dfa"<<endl;
 		cout<<"3. Construct a minimized dfa"<<endl;
 		cout<<"4. Display the minimized no of states"<<endl;
-		cout<<"Enter your choice\n";
+		cout<<"Enter your choice : ";
 		cin>>n;
-			switch(n){
-				case 1: cdfa(a,b); 
-			        break;
-				case 2: cout<<"Total no of states in original dfa = 5"<<endl;
-			        break;
-				case 3:  mdfa(a,b);
-			        break;
-				case 4: cout<<"The minimized no of states = 3"<<endl;
-			         break;
-				default: cout<<"Invalid choice"<<endl;  
-					         
-			}
-		cout<<"Press y to continue or n to end"<<endl;
+		switch(n){
+			case 1: 
+				cdfa(a,b); 
+			    break;
+			case 2: 
+				cout<<"Total no of states in original dfa = 5"<<endl;
+		        break;
+			case 3:  
+				mdfa(a,b);
+			    break;
+			case 4: 
+				cout<<"The minimized no of states = 3"<<endl;
+		        break;
+			default: 
+				cout<<"Invalid choice"<<endl;  			         
+		}
+		cout<<"Press y to continue or n to end : ";
 		cin>>ch;
 	}while(ch=='y');
 	return 0;
