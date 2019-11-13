@@ -2,7 +2,7 @@
 %{
     #include<stdlib.h>
     void yyerror(char *);
-    #include"Exp_19_1_x.tab.h"
+    #include"Postfix.tab.h"
 %}
 %%
 [0-9]+ {

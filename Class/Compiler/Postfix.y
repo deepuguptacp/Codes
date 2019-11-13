@@ -1,9 +1,9 @@
 /*                EXPERIMENT NO - 19       Date : 06:11:2019 03:11PM
 Conversion of given INFIX Expresssion to POSTFIX Expression
 For execution write in terminal :
-yacc -d Exp_19_1_x.y
-lex Exp_19_2_x.l
-gcc lex.yy.c Exp_19_1_x.tab.c
+yacc -d Postfix.y
+lex Postfix.l
+gcc lex.yy.c Postfix.tab.c
 a.exe
 */
 %{
