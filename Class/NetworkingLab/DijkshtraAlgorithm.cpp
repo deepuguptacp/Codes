@@ -5,22 +5,22 @@ using namespace std;
 //int distance[8][8];
 #define max 2
 #define INFINITY 9999
-int num(char ch){
-    if( ch == 'A'|| 'a' )
+int priority(char ch){
+    if( ch == 'A'|| ch == 'a' )
         return 0;
-    else if( ch == 'B' || 'b')
+    else if( ch == 'B' || ch == 'b')
         return 1;
-    else if( ch == 'C' || 'c')
+    else if( ch == 'C' || ch == 'c')
         return 2;
-    else if( ch == 'D' || 'd')
+    else if( ch == 'D' || ch == 'd')
         return 3;
-    else if( ch == 'E' || 'e')
+    else if( ch == 'E' || ch == 'e')
         return 4;
-    else if( ch == 'F' || 'f')
+    else if( ch == 'F' || ch == 'f')
         return 5;
-    else if( ch == 'G' || 'g')
+    else if( ch == 'G' || ch == 'g')
         return 6;
-    else if( ch == 'H' || 'h')
+    else if( ch == 'H' || ch == 'h')
         return 7;
 }
 //void dijkstra(int G[max][max],int n,int startnode);
@@ -41,8 +41,9 @@ int main(){
     char start, end;
     cout<<"Enter the starting and End nodes : ";
     cin>>start>>end;
-    int begin = num(start);
-    int last = num(end);
+    cout<<start<<"\t"<<end<<endl; 
+    int begin = priority(start);
+    int last = priority(end);
     cout<<begin<<"\t"<<last<<endl;
     //dijkstra(distance, begin, last);
     return 0;
