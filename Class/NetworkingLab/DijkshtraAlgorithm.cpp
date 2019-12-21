@@ -4,7 +4,7 @@
 using namespace std;
 //int distance[8][8];
 #define max 8
-#define INFINITY 9999
+//#define INFINITY 9999
 int priority(char ch){
     if( ch == 'A'|| ch == 'a' )
         return 0;
