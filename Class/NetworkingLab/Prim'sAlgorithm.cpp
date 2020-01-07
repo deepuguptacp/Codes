@@ -1,6 +1,6 @@
 #include<iostream> 
 using namespace std;  
-#define V 5 
+#define V 8
 
 int minKey(int key[], bool mstSet[]) { 
 	int min = INT_MAX, min_index; 
@@ -17,7 +17,7 @@ void primMST(int graph[V][V]) {
 	for (int i = 0; i < V; i++) 
 		key[i] = INT_MAX, mstSet[i] = false;
 	key[0] = 0; 
-	parent[0] = -1; // First node is always root of MST
+	parent[0] = -1; // First node is always root of MST in Prim's Algorithm
 	for (int count = 0; count < V - 1; count++){
 		int u = minKey(key, mstSet);
 		mstSet[u] = true;
@@ -48,4 +48,14 @@ int main(){
 0 3 0 0 7
 6 8 0 0 9
 0 5 7 9 0
+*/
+/*
+0 1 4 0 0 0 0 0
+1 0 2 9 0 0 4 2
+4 2 0 1 3 0 0 0 
+0 9 1 0 1 3 1 0
+0 0 3 1 0 1 0 0
+0 0 0 3 1 0 6 0
+0 9 0 1 0 6 0 14
+0 2 0 0 0 0 14 0
 */
