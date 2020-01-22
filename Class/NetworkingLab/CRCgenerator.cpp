@@ -41,8 +41,10 @@ int main(){
     cout<<endl<<"Transmitted Message : ";   // Message delivered
     for(int i=0; i<n+r; i++)
         cout<<message[i]<<" ";
+    cout<<endl;
     cout<<"RECIEVER END"<<endl;     // Message recieved
-    cout<<"Enter the recieved message : "
+    
+    cout<<"Enter the recieved message : ";
     for(int i=0; i<n+r; i++)
         cin>>message[i];
     for(int i=0; i<n+r; i++)
@@ -50,12 +52,13 @@ int main(){
     XOR(temp, gen, n, r);
     for(int i=0; i<r; i++){
         if(temp[n+i]){              // Checking for the errors i.e any '1' in the remainder
-            cout<<"Error detected in received message.";
+            cout<<"Error detected in received message."<<endl;
             return 0;
         } 
     }
-    cout<<"No error in received Message.\nReceived Message : ";
+    cout<<"No error in received Message."<<endl<<"Received Message : ";
     for(int i=0; i<n; i++)
         cout<<message[i]<<" ";
+    cout<<endl;
     return 0;
 }
