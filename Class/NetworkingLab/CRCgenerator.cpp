@@ -34,7 +34,7 @@ int main(){
         temp[i] = message[i];
     XOR(temp, gen, n, r);         // Function calling for XOR
     cout<<"CRC : ";
-    for(int i=0; i<r; i++){         //Appending th remainder at the end of the sender's message
+    for(int i=0; i<r; i++){         //Appending the remainder at the end of the sender's message
         cout<<temp[n+i]<<" ";
         message[n+i] = temp[n+i];
     }
