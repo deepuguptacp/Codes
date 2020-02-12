@@ -12,6 +12,7 @@ int main(){
         int A[N];
         for(int i=0; i<N; i++)
             cin>>A[i];
+        int profit = 0;
         
     }
 	return 0;
