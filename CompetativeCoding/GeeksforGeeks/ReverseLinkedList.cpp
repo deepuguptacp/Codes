@@ -1,19 +1,20 @@
+//https://practice.geeksforgeeks.org/problems/reverse-a-linked-list/1/
 /*
   C++ program for implementation of single linked list;
 */
 #include<bits/stdc++.h>
 using namespace std;
 /*
- * Node Declaration
- */
+    * Node Declaration
+*/
 struct node{
     int info;
     struct node *next;
 };
 struct node *start=NULL;
 /*
- * Creating Node
- */
+    * Creating Node
+*/
 struct node *create_node(int value){
     struct node *temp;
     temp = new (struct node);
@@ -28,8 +29,8 @@ struct node *create_node(int value){
     }
 }
 /*
- * Inserting element in beginning
- */
+    * Inserting element in beginning
+*/
 void insert_begining(int a){
     struct node *temp, *p;
     p = create_node(a);
@@ -45,8 +46,8 @@ void insert_begining(int a){
     cout<<"\nNode inserted sucessfully at the begining.";   
 }
 /*
- * Inserting Node at last
- */
+    * Inserting Node at last
+*/
 void insert_end(int a){
     struct node *temp, *p;
     temp=start;
@@ -58,8 +59,8 @@ void insert_end(int a){
     cout<<"\nNode inserted sucessfully at the end.";
 }
 /*
- * Insertion of node at a given position
- */
+    * Insertion of node at a given position
+*/
 void insert_position(int a, int pos){
     struct node *temp, *s, *ptr;
     temp=create_node(a);
@@ -101,8 +102,8 @@ void insert_position(int a, int pos){
     }
 }
 /*
- * Delete element from the begining
- */
+    * Delete element from the begining
+*/
 void Delete_begining(){
     struct node *temp;
     temp=start;
@@ -116,8 +117,8 @@ void Delete_begining(){
     }
 }
 /*
- * Delete element from the end
- */
+    * Delete element from the end
+*/
 void Delete_end(){
     struct node *temp, *prev;
     temp=start;
@@ -129,8 +130,8 @@ void Delete_end(){
     delete temp;
 }
 /*
- * Delete element 
- */
+    * Delete element 
+*/
 void Delete_element(){
     int key;
     cout<<"\nEnter the element you wish to delete : ";
@@ -145,8 +146,8 @@ void Delete_element(){
     delete temp;
 }
 /*
- * Searching an element
- */
+    * Searching an element
+*/
 void search(){
     int key, flag=1;
     cout<<"\nEnter the number to be searched in the list : ";
@@ -164,8 +165,8 @@ void search(){
         cout<<"\nThe element is not present"; 
 }
 /*
- * Display Elements of a link list
- */
+    * Display Elements of a link list
+*/
 void print(){
     struct node *temp;
     if(start == NULL){
@@ -180,8 +181,41 @@ void print(){
     cout<<"NULL";
 }
 /*
+    * Reverse the Linked List
+    * ITERATIVE METHOD : 
+        1 . Initialize three pointers prev as NULL, curr as head and next as NULL.
+        2 . Iterate trough the linked list. In loop, do following.
+            // Before changing next of current,
+            // store next node
+            next = curr->next
+            // Now change next of current
+            // This is where actual reversing happens
+            curr->next = prev
+            // Move prev and curr one step forward
+            prev = curr
+            curr = next
+*/
+void reverse(){
+    if(start == NULL){
+        cout<<"List is empty.";
+        return;   
+    }
+    else{
+        struct node* temp = start;
+        struct node* current = start;
+        struct node *prev = NULL, *next = NULL;
+        while(current!=NULL){
+            next = current->next;
+            current->next = prev;
+            prev = current;
+            current = next;
+        }
+        start = prev;
+    }
+}
+/*
  * Main :contains menu 
- */
+*/
 int main(){
     clock_t begining, end;
     begining = clock();
@@ -197,6 +231,7 @@ int main(){
     cout<<"\n5. Delete at end.";
     cout<<"\n6. Delete required element.";
     cout<<"\n7. Search any element.";
+    cout<<"\n8. Reverse the linked list.";
     cout<<"\nYour choice : ";
     cin>>operation;
     switch(operation){
@@ -255,6 +290,11 @@ int main(){
             break;
             case 7 :
             search();
+            break;
+            case 8 :
+            reverse();
+            cout<<endl;
+            print();
             break;
             default :
             cout<<"\nplease give a valid input";
