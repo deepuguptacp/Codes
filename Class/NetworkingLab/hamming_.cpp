@@ -10,7 +10,7 @@ int main(){
     while (a + r + 1 > pow(2, r)){ // ----------- calculate redundant bits.
         r++;
     }
-    cout <<"No of data bits to be added : " << r <<endl<<"Total Bits : " << a + r << endl;
+    cout <<"No of parity bits to be added : " << r <<endl<<"Total Bits : " << a + r << endl;
     cout <<"Enter the Data Bits One by One from LSB to MSB : ";
     for (int i = 1; i <= a; i++)
         cin >> c[i];
@@ -33,7 +33,7 @@ int main(){
         }
     }
     //-----------------------------------------------
-    cout <<"Data Bits are Encoded with Parity bits(0): ";
+    cout <<"Data Bits are Encoded with Parity bits(2): ";
     for (int i = 1; i <= a + r; i++)
         cout << data[i] << " ";
     d1 = 0;
@@ -60,9 +60,10 @@ int main(){
             data[i] = 1;
         }
     }
+    //reverse(data, data+(a+r));
     cout <<endl<<"Hamming codeword bits for even parity are : ";
     for (int i = 1; i <= a + r; i++)
         cout << data[i] << " ";
-    cout << endl
-         << endl;
+    cout<<endl<<endl;
+    return 0;
 }
