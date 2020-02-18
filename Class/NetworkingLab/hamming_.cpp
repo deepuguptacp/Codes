@@ -12,41 +12,40 @@ int main(){
     }
     cout <<"No of data bits to be added : " << r <<endl<<"Total Bits : " << a + r << endl;
     cout <<"Enter the Data Bits One by One : ";
-    for (int i = 1; i <= a; ++i)
+    for (int i = 1; i <= a; i++)
         cin >> c[i];
     cout << endl<<"Data bits entered : ";
-    for (int i = 1; i <= a; ++i)
+    for (int i = 1; i <= a; i++)
         cout << c[i] << " ";
     cout << endl;
     int data[a + r];
     d = 0;
     d1 = 1;
-    //------------------------------
-    for (int i = 1; i <= a + r; ++i){
-        if ((i) == pow(2, d)){
+    for (int i = 1; i <= a + r; i++){
+        if (i == pow(2, d)){
             data[i] = 0;
-            ++d;
+            d++;
         }
         else{
             data[i] = c[d1];
-            ++d1;
+            d1++;
         }
     }
     //-----------------------------------------------
     cout <<"Data Bits are Encoded with Parity bits(0): ";
-    for (int i = 1; i <= a + r; ++i)
+    for (int i = 1; i <= a + r; i++)
         cout << data[i] << " ";
     d1 = 0;
     int min, max = 0, parity, s, j; /*Parity Bit Calculation */
     for (int i = 1; i <= a + r; i = pow(2, d1)){
-        ++d1;
+        d1++;
         parity = 0;
         j = i;
         s = i;
         min = 1;
         max = i;
         for (j; j <= a + r;){
-            for (s = j; max >= min && s <= a + r; ++min, ++s){
+            for (s = j; max >= min && s <= a + r; min++, s++){
                 if (data[s] == 1)
                     parity++;
             }
@@ -61,7 +60,7 @@ int main(){
         }
     }
     cout <<endl<<"Hamming codeword bits for even parity are : ";
-    for (int i = 1; i <= a + r; ++i)
+    for (int i = 1; i <= a + r; i++)
         cout << data[i] << " ";
     cout << endl
          << endl;
