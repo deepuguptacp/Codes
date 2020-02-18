@@ -11,19 +11,20 @@ int main(){
         r++;
     }
     cout <<"No of data bits to be added : " << r <<endl<<"Total Bits : " << a + r << endl;
-    cout <<"Enter the Data Bits One by One : ";
+    cout <<"Enter the Data Bits One by One from LSB to MSB : ";
     for (int i = 1; i <= a; i++)
         cin >> c[i];
     cout << endl<<"Data bits entered : ";
     for (int i = 1; i <= a; i++)
         cout << c[i] << " ";
     cout << endl;
+    //reverse(c, c+a);
     int data[a + r];
     d = 0;
     d1 = 1;
     for (int i = 1; i <= a + r; i++){
         if (i == pow(2, d)){
-            data[i] = 0;
+            data[i] = 2;
             d++;
         }
         else{
@@ -65,4 +66,3 @@ int main(){
     cout << endl
          << endl;
 }
-//End
