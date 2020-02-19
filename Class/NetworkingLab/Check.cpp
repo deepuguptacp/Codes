@@ -73,4 +73,7 @@ int main(){
         cin>>A[i];
     }
     cout<<binarytoDecimal(A, r)<<endl;
+    cout<<"h : "<<1^0;
+    cout<<endl;
+    return 0;
 }

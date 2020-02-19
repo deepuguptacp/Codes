@@ -15,7 +15,7 @@ int main(){
     cout<<"--------------------"<<endl;
     cout << "Enter the No of Data Bits you want to Enter : ";
     cin >> a;
-    while (a + r + 1 > pow(2, r)){ // ----------- calculate redundant bits.
+    while (a + r + 1 > pow(2, r)){ // ----------- calculate number of redundant bits.
         r++;
     }
     cout <<"No of parity bits to be added : " << r <<endl<<"Total Bits : " << a + r << endl;
@@ -83,7 +83,7 @@ int main(){
     d=1;
     for(int i=1; i<=a+r; i++){
         //Finding the parity bits
-        
+
     }
     cout<<"Parity bits : ";
     for(int i=1; i<=r; i++)
