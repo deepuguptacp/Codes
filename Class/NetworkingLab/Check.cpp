@@ -1,6 +1,6 @@
 #include<iostream>
 using namespace std;
-void division(int temp[],int gen[],int n,int r){
+/*void division(int temp[],int gen[],int n,int r){
     for(int i=0;i<n;i++){
         if (gen[0]==temp[i]){
             for(int j=0,k=i;j<r+1;j++,k++)
@@ -55,4 +55,22 @@ int main(){
     for(int i=0;i<n;i++)
         cout<<message[i]<<" ";
     return 0;
+    }*/
+    int binarytoDecimal(int A[], int n){
+    int dec_val=0;
+    int base = 1;
+    for(int i=n; i>=1; i--){
+        dec_val += A[i] * base;
+        base *= 2;
     }
+    return dec_val;
+}
+int main(){
+    int r;
+    cin>>r;
+    int A[r];
+    for(int i=1; i<=r; i++){
+        cin>>A[i];
+    }
+    cout<<binarytoDecimal(A, r)<<endl;
+}
