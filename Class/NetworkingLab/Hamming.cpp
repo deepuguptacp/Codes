@@ -9,6 +9,33 @@ int binarytoDecimal(int A[], int n){
     }
     return dec_val;
 }
+int Paritybits(int data[], int n){
+    int par[n];
+    int d1=1, d=0, k=1;
+    int parity, s, min, max;
+    for (int i = 1; i <= n; i = pow(2, d1)){
+        d1++;
+        parity = 0;
+        //j = i;
+        s = i;
+        min = 1;
+        max = i;
+        for (int j=i; j <= n;){
+            for (s = j; max >= min && s <= n; min++, s++){
+                if (data[s] == 1)
+                    parity++;
+            }
+            j = s + i;
+            min = 1;
+        }
+        if (parity % 2 == 0){ // Even Parity
+            par[k] = 0;
+            k++;
+        }
+    }
+    int temp = binarytoDecimal(par, k);
+    return temp;
+}
 int main(){
     int a, b, c[30], d, r = 0, d1; //Max bits here i kept is 30
     cout<<"At Sender's End : "<<endl;
@@ -79,16 +106,11 @@ int main(){
     int recieved[a+r];
     for(int i=a+r; i>0; i--)
         cin>>recieved[i];
-    int par[r+1];
-    d=1;
-    for(int i=1; i<=a+r; i++){
-        //Finding the parity bits
-
-    }
-    cout<<"Parity bits : ";
-    for(int i=1; i<=r; i++)
-        cout<<par[i]<<" ";
-    int temp = binarytoDecimal(par, r);
+    int temp = Paritybits(recieved, a+r);
+    //cout<<"Parity bits : ";
+    //for(int i=1; i<=r; i++)
+        //cout<<par[i]<<" ";
+    //int temp = binarytoDecimal(par, r);
     cout<<endl;
     if(temp == 0)
         cout<<"No ERROR in the message bit"<<endl;
