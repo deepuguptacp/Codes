@@ -2,7 +2,7 @@
 #include<bits/stdc++.h>
 using namespace std;
 //#define ll long long;
-long long decimaltoBinary(long long n){
+/*long long decimaltoBinary(long long n){
     long long rem, binary=0, revbinary=0;
     for( ; n>0; n=n/2){
         rem = n%2;
@@ -29,16 +29,21 @@ long long Sol(long long N){
         base++;
     }
     return dec_value;
-}
+}*/
 int main(){
     long long T;
     cin>>T;
     while(T--){
-        long long X;
-        cin>>X;
-        long long binary = decimaltoBinary(X);
-        //cout<<binary<<endl;
-        cout<<Sol(binary)<<endl;
+        long long int x,a,s=0;
+        cin>>x;
+        for(int i=0; i<=31; i++){
+            a=x%2;
+            x=x/2;
+            if(a==1){
+                s=s+i;
+            }
+        }
+        cout<<s<<endl;
     }
     return 0;
 }
