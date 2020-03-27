@@ -11,15 +11,19 @@ int main(){
         int k;
         cin>>k;
         int d = x/y;
-        for (int i = 0; i <= k; i++) { 
-            cout << d; 
-            x = x - (y * d); 
-            if (x == 0) 
-                break; 
-            x = x * 10; 
-            d = x / y; 
-            if (i == 0) 
-                cout << "."; 
+        if(k == 0) 
+            cout<<d;
+        else{
+            for (int i = 0; i <= k; i++) { 
+                cout << d; 
+                x = x - (y * d); 
+                if (x == 0) 
+                    break; 
+                x = x * 10; 
+                d = x / y; 
+                if (i == 0) 
+                    cout << "."; 
+            }
         }
         cout<<endl;
     }
