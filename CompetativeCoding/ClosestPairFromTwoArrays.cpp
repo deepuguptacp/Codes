@@ -2,7 +2,25 @@
 #include<bits/stdc++.h>
 using namespace std;
 #define ll long long
-
+/*
+void printClosest(int ar1[], int ar2[], int m, int n, int x){
+    int diff = INT_MAX;
+    int res_l, res_r; 
+    int l = 0, r = n-1;
+    while (l<m && r>=0){
+       if (abs(ar1[l] + ar2[r] - x) < diff){
+           res_l = l;
+           res_r = r;
+           diff = abs(ar1[l] + ar2[r] - x);
+       }
+       if (ar1[l] + ar2[r] > x)
+           r--;
+       else
+           l++;
+    }
+    cout<<ar1[res_l]<<" "<< ar2[res_r]; 
+} 
+*/
 int main(){
 	int t;
     cin>>t;
@@ -12,7 +30,7 @@ int main(){
         int a[n], b[m];
         for(int i=0; i<n; i++)
             cin>>a[i];
-        for(int i=0; i<n; i++)
+        for(int i=0; i<m; i++)
             cin>>b[i];
         int x;
         cin>>x;
@@ -30,6 +48,8 @@ int main(){
             }
         }
         cout<<g<<" "<<h<<endl;
+        //printClosest(a, b, n, n, x);
+        //cout<<endl;
     }
 	return 0;
 }
