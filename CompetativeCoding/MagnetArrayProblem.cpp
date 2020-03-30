@@ -36,7 +36,7 @@ int main(){
         for(int i=0; i<n; i++)
             cin>>M[i];
         for(int i=1;i<n;i++){
-			cout<<ZeroLocation(M, n, M[i-1], M[i])<<" ";
+			cout<<fixed<<setprecision(2)<<ZeroLocation(M, n, M[i-1], M[i])<<" ";
 		}
 		cout<<endl;
     }
