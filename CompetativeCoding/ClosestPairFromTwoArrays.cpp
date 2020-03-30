@@ -9,15 +9,15 @@ int main(){
     while(t--){
         int n, m;
         cin>>n>>m;
-        int A[n], B[m];
+        int a[n], b[m];
         for(int i=0; i<n; i++)
-            cin>>A[i];
+            cin>>a[i];
         for(int i=0; i<n; i++)
-            cin>>B[i];
+            cin>>b[i];
         int x;
         cin>>x;
-        sort(a,a+n);
-        sort(b,b+m);
+        sort(a, a+n);
+        sort(b, b+m);
         int g = 0, h = 0;
         int min = INT_MAX;
         for(int i=0; i<n; i++){
