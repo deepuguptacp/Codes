@@ -2,7 +2,7 @@
 #include<bits/stdc++.h>
 using namespace std;
 #define ll long long
-
+/*
 void MergeSort(int p[], int q[], int x, int y){
     for (int i = y-1; i >= 0; i--){
         int j, last = p[x-1];
@@ -14,7 +14,7 @@ void MergeSort(int p[], int q[], int x, int y){
         }
     }
 }
-
+*/
 int main(){
     int t;
     cin>>t;
@@ -26,12 +26,23 @@ int main(){
             cin>>p[i];
         for(int i=0; i<y; i++)
             cin>>q[i];
-        MergeSort(p, q, x, y);
-        for(int i=0; i<x; i++)
-            cout<<p[i]<<" ";
-        for(int i=0; i<y; i++)
-            cout<<q[i]<<" ";
-        cout<<endl;
+        //MergeSort(p, q, x, y);
+        long long int i=0, j=0;
+	    while(i<x && j<y){
+	        if(p[i]<q[j]){
+                cout<<p[i++]<<" ";
+            }
+	        else{
+                cout<<q[j++]<<" ";
+            }
+	    }
+	    while(i<x){
+            cout<<p[i++]<<" ";
+        }
+	    while(j<y){
+            cout<<q[j++]<<" ";
+        }
+	    cout<<endl;
     }
 	return 0;
 }
