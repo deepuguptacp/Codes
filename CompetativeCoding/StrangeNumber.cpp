@@ -18,20 +18,14 @@ int main(){
     while(t--){
         ll x, k;
         cin>>x>>k;
+        //int temp = 0;
         if(k == 1 && x >= 2)
             cout<<1<<endl;
-        else if(k == 2 && x >= 4){
-            if(!isPrime(x))
-                cout<<1<<endl;
-            else
-                cout<<0<<endl;
+        else if(k == 2 && x >= 4 && !isPrime(x)){
+            cout<<1<<endl;
         }
-        else if(k < x && x >= pow(2, k)){
-            if(!isPrime(x))
-                cout<<1<<endl;
-            else
-                cout<<0<<endl;
-        }
+        
+        
         else
             cout<<0<<endl;
     }
