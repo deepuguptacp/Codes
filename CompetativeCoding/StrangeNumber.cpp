@@ -18,16 +18,16 @@ int main(){
     while(t--){
         ll x, k;
         cin>>x>>k;
-        //int temp = 0;
-        if(k == 1 && x >= 2)
-            cout<<1<<endl;
-        else if(k == 2 && x >= 4 && !isPrime(x)){
-            cout<<1<<endl;
+        ll temp = 0;
+        for(int i=2; i<=x; i++){
+            if(isPrime(i) && x%i == 0)
+                temp++;
         }
-        
-        
+        if(temp==k)
+            cout<<1<<endl;
         else
             cout<<0<<endl;
+        //cout<<temp<<endl;
     }
     return 0;
 }
