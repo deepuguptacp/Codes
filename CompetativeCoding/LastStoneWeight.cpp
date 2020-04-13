@@ -7,13 +7,13 @@ int lastStoneWeight(vector<int>& stones) {
         sort(stones.begin(), stones.end());
         if(stones[n-1] != stones[n-2]){
             stones[n-2] = abs(stones[n-1] - stones[n-2]);
-            n-=1;                
+            n-=1;        
         } else {
             n-=2;
-        }   
-        stones.resize(0, n);
+        } 
+        stones.resize(n);
     }
-    if(n<0){
+    if(n<=0){
         return 0;
     } else {
         return stones[0];
@@ -23,9 +23,12 @@ int lastStoneWeight(vector<int>& stones) {
 int main(){
     int n;
     cin>>n;
-    vector<int> V[n];
-    for(int i=0; i<n; i++)
-        cin>>V[i];
-    cout<<lastStoneWeight(*V)<<endl;
+    vector<int> V;
+    int a;
+    for(int i=0; i<n; i++){
+        cin>>a;
+        V.push_back(a);
+    }
+    cout<<lastStoneWeight(V)<<endl;
     return 0;
 }

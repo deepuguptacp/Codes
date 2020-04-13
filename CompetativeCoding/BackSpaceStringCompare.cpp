@@ -5,8 +5,8 @@ bool backspaceCompare(string S, string T) {
     //cout<<2<<endl;
     stack<char> s1, s2;
     int i=0;
-    // s1.push('$');
-    // s2.push('$');
+    s1.push('$');
+    s2.push('$');
     // while(S[i] == '#'){
     //     i++;
     // }
@@ -14,13 +14,13 @@ bool backspaceCompare(string S, string T) {
         if(S[i] != '#'){
             s1.push(S[i]);
         } 
-        else if(S[i]=='#' && !s1.empty()) {
+        else if(S[i]=='#' && s1.top() != '$') {
             s1.pop();
         }
         i++;
     }
     i=0;
-    //cout<<3<<endl;
+    // cout<<3<<endl;
     // while(T[i] == '#'){
     //     i++;
     // }
@@ -28,13 +28,13 @@ bool backspaceCompare(string S, string T) {
         if(T[i] != '#'){
             s2.push(T[i]);
         } 
-        else if(T[i]=='#' && !s2.empty()) {
+        else if(T[i]=='#' && s2.top() != '$') {
             s2.pop();
         }
         i++;
     }
     //cout<<4<<endl;
-    while(!s1.empty() && !s2.empty()){
+    while(s1.top() != '$' || s2.top() != '$'){
         if(s1.top() == s2.top()){
             s1.pop();
             s2.pop();
