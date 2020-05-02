@@ -34,8 +34,12 @@ int MinNum(int num){
                 n[i] = '1';
         }
     } else if(n[0] == '1') {
-        x = n[1];
-        for(int i=1; i<n.length(); i++){
+        int j = 1;
+        while(n[j] == '1' || n[j] == '0' && j<= n.length()){
+            j++;
+        }
+        x = n[j];
+        for(int i=j; i<n.length(); i++){
             if(n[i] == x)
                 n[i] = '0';
         }
