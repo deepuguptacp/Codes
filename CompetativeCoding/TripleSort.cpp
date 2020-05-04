@@ -11,6 +11,8 @@ int main(){
         ll p[n];
         for(int i=0 ; i<n; i++)
             cin>>p[i];
+        map<int, vector<int> > m;
+        vector<int> V;
         
     }
     return 0;
