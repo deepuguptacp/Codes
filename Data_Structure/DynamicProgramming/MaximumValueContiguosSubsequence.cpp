@@ -38,18 +38,44 @@ int MaximumSum(vector<int> V){
     return sum;
 }
 
+vector<int> MaxSumNo(vector<int> V){
+    vector<int> res;
+    int sumSoFar = 0;
+    int sumEndingHere = 0;
+    for(int i = 0; i < V.size(); i++){
+        sumEndingHere += V[i];
+        if(sumEndingHere < 0){
+            sumEndingHere = 0;
+            res.clear();
+            continue;
+        } else {
+                if(sumSoFar < sumEndingHere){
+                    sumSoFar = sumEndingHere;
+            }
+            res.push_back(V[i]);
+        }
+    }
+    //res.push_back(sumSoFar);
+    return res;
+}
+
 int main(){
     int n;
     cout<<"Enter the number of integers : ";
     cin>>n;
     vector<int> V;
     int k;
-    cout<<"Enter the integers : "
+    cout<<"Enter the integers : ";
     for(int i = 0; i<n; i++){
         cin>>k;
         V.push_back(k);
     }
-
+    vector<int> p = MaxSumNo(V);
+    cout<<"Subsequence returning maximum sum is : ";
+    for(int i = 0; i < p.size(); i++){
+        cout<< p[i]<<" ";
+    }
+    cout<<endl;
     cout<<"Maximum contiguous subsequence sum : "<<MaximumSum(V)<<endl;
     return 0;
 }
