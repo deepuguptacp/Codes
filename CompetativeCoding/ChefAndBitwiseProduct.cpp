@@ -20,7 +20,6 @@ int main(){
                 temp = k;
                 res = i;
             }
-            cout<<i<<"->"<<k<<endl;
         }
         cout<<res<<endl;
     }
