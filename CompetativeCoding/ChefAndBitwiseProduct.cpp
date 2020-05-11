@@ -1,27 +1,51 @@
 //https://www.codechef.com/MAY20B/problems/CHANDF
-#include<bits/stdc++.h>
+#include <bits/stdc++.h>
 using namespace std;
-#define ll long long
+#define M 64
 
-ll BitwiseAND(ll X, ll Y, ll Z){
-    return (X & Z) * (Y & Z) ;
-}
-
-int main(){
-    ll t;
+int main() {
+    int t;
     cin>>t;
     while(t--){
-        ll x, y, l, r;
+        long long x,y,l,r;
         cin>>x>>y>>l>>r;
-        ll res = 0, temp = 0;
-        for(ll i = l; i<=r; i++){
-            ll k = BitwiseAND(x, y, i);
-            if(k > temp){
-                temp = k;
-                res = i;
+        bitset<M> bsetx(x);
+        bitset<M> bsety(y);
+        bitset<M> bsetr(r);
+        bitset<M> bset;
+        long long max=(x&l)*(y&l),z=l;
+        for(int i = 63; i >= 0; i--){
+            if(bsetr[i] == 1){
+                bset.flip();
+                for(int j = 63; j >= i; j--)
+                    bset[j] = bsetr[j];
+                bset[i] = 0;
+                if(bset.to_ulong() < l){
+                    bset.reset();
+                    continue;
+                }
+                for(int j = i-1; j >= 0; j--){
+                    if(bsetx[j] == 0 && bsety[j] == 0){
+                        bset[j] = 0;
+                        if(bset.to_ulong() < l)
+                            bset[j] = 1;
+                    }
+                    else 
+                        bset[j] = 1;
+                }
+                if(bset.to_ulong() >= l){
+                    long long product = (x & bset.to_ulong()) * (y & bset.to_ulong());
+                    if(max < product){
+                        max = product;
+                        z = bset.to_ulong();
+                    }
+                }
+                bset.reset();
             }
         }
-        cout<<res<<endl;
+        if(max < (x & r) * ( y & r)) 
+            z = r;
+        cout<<z<<endl;
     }
     return 0;
 }
