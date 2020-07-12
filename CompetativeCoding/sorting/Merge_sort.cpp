@@ -38,8 +38,8 @@ void merge(int arr[], int l, int m, int r){
 void Merge_sorting(int A[], int l, int r){
     if (l < r) {
         int m = l + (r - l) / 2;
-        mergeSort(A, l, m);
-        mergeSort(A, m + 1, r);
+        Merge_sorting(A, l, m);
+        Merge_sorting(A, m + 1, r);
         merge(A, l, m, r);
     }
 }
