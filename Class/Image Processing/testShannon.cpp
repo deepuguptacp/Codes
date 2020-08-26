@@ -144,4 +144,4 @@ int main(){
 	display(n, p);
     cout<<endl;
 	return 0; 
-} 
+}
