@@ -1,5 +1,33 @@
 #include<bits/stdc++.h>
 using namespace std;
+#define ll long long
+
+struct pair1{
+    int con;
+    double time;
+    pair1(int c, double t){
+        con = c;
+        time = t;
+    }
+};
+
+int Corona(vector<vector <pair1> > &Interaction, map<int, int> &visit, queue<pair1> &q){
+    int counter = 0;
+    while(!q.empty()){
+        pair1 temp = q.front();
+        q.pop();
+        for(int i = 0; i < Interaction[temp.con].size(); i++){
+            if(visit.count(Interaction[temp.con][i].con) == 0){
+                if(temp.time < Interaction[temp.con][i].time){
+                    visit[Interaction[temp.con][i].con]++;
+                    q.push(Interaction[temp.con][i]);
+                    counter++;
+                }
+            }
+        }
+    }
+    return counter;
+}
 
 int main(){
     int t;
@@ -7,50 +35,39 @@ int main(){
     while(t--){
         int n;
         cin>>n;
-        int V[n];
-        bool check[n];
-        for(int i = 0; i < n; i++){
+        vector<int> V(n + 1);
+        for(int i = 1; i < n + 1; i++){
             cin>>V[i];
         }
-        int Bcase = n;
-        int Wcase = 1;
-        for(int i = 0; i < n; i++){
-            for(int a = 0; a < n; a++){
-                check[a] = false;
-            }
-            int temp = 0;
-            check[i] = true;
-            for(int j = 0; j < n; j++){
-                if(j < i){
-                    if(V[j] > V[i]){
-                        //temp++;
-                        check[j] = true;
+        vector<vector <pair1> > Interaction(n + 1);
+        for(int i = 1; i < n + 1; i++){
+            for(int j = 1; j < n + 1; j++){
+                if(i != j){
+                    if(i > j && V[i] < V[j]){
+                        Interaction[i].push_back(pair1(j, (double)(i - j) / (V[j] - V[i])));
                     }
-                } 
-                else if(j > i){
-                    if(V[j] < V[i]){
-                        //temp++;
-                        check[j] = true;
+                    else if(i < j && V[i] > V[j]){
+                        Interaction[i].push_back(pair1(j, (double)(j - i) / (V[i] - V[j])));   
                     }
                 }
             }
-            for(int k = i + 1; k < n; k++){
-                if(check[k] == true && V[k] < V[i]){
-                    for(int l = 0; l < i; l++){
-                        if(V[l] > V[k] && check[l] == false){
-                            check[l] = true;
-                        }
-                    }
-                }
-            }
-            for(int m = 0; m < n; m++){
-                if(check[m] == true)
-                    temp++;
-            }
-            Bcase = min(Bcase, temp);
-            Wcase = max(Wcase, temp);
         }
-        cout<<Bcase<<" "<<Wcase<<endl;
+        int minRes = INT_MAX, maxRes = INT_MIN;
+        for(int i = 1; i < n + 1; i++){
+            map<int, int> visit;
+            queue<pair1> q;
+            int counter = 1;
+            visit[i]++;
+            for(int j = 0; j < Interaction[i].size(); j++){
+                visit[Interaction[i][j].con]++;
+                q.push(Interaction[i][j]);
+                counter++;
+            }
+            counter += Corona(Interaction, visit, q);
+            maxRes = max(maxRes, counter);
+            minRes = min(minRes, counter);
+        }
+        cout<<minRes<<" "<<maxRes<<endl;
     }
     return 0;
 }
