@@ -13,7 +13,6 @@ class Huffman_Codes{
   		New_Node* left;
         New_Node* mid;
   		New_Node* right;
-        //stack<int> s;
   		New_Node(char data, size_t freq) : data(data), freq(freq), left(NULL), mid(NULL), right(NULL){}
  		~New_Node(){
    			delete left;
@@ -63,17 +62,25 @@ class Huffman_Codes{
    			}
 
 			while(minHeap.size() != 1){
+
       			left = minHeap.top();
 				minHeap.pop();
 				mid = minHeap.top();
 				minHeap.pop();
-                right = minHeap.top();
-				minHeap.pop();
-				top = new New_Node('$', left->freq + mid->freq + right->freq);
-      			top->left  = left;
-                top->mid = mid;
-      			top->right = right;
-      			minHeap.push(top);
+                if(minHeap.top() != NULL){
+                    right = minHeap.top();
+				    minHeap.pop();
+				    top = new New_Node('$', left->freq + mid->freq + right->freq);
+      			    top->left  = left;
+                    top->mid = mid;
+      			    top->right = right;
+      			    minHeap.push(top);
+                } else {
+                    top = new New_Node('$', left->freq + mid->freq);
+      			    top->left  = left;
+                    top->mid = mid;
+      			    minHeap.push(top);
+                }
      		}
             cout<<"Huffman Code : "<<endl;
     		print_Code(minHeap.top(), "");
@@ -98,7 +105,7 @@ int main(){
     double entropy = 0;
   	for (int i = 0; i < n; i++){
 		cin>>k[i];
-        entropy += k[i] * log2(k[i]);
+        entropy = entropy + (k[i] * log2(k[i]));
 		k[i] = k[i] * 1000;
       	f = k[i];
 		freq.insert(freq.end(), f);
