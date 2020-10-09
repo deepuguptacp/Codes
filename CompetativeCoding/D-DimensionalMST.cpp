@@ -1,93 +1,67 @@
-#include <bits/stdc++.h>
+#include<bits/stdc++.h>
 using namespace std;
+ 
 #define ll long long
-
-#define edge pair<int, int>
-
-class Graph {
-    private:
-        vector<pair<int, edge> > G;  // graph
-        vector<pair<int, edge> > T;  // mst
-        int *root;
-        int V;  // number of vertices/nodes in graph
-    public:
-        Graph(int V);
-        void AddEdge(int u, int v, int w);
-        int find_set(int i);
-        void union_set(int u, int v);
-        void kruskal();
-        void print();
-};
-Graph::Graph(int V) {
-    root = new int[V];
-
-  //i 0 1 2 3 4 5
-  //root[i] 0 1 2 3 4 5
-    for (int i = 0; i < V; i++)
-        root[i] = i;
-
-    G.clear();
-    T.clear();
+#define MAX 100005
+#define pb push_back
+#define mp make_pair
+#define gc getchar_unlocked
+ 
+ll root_node[MAX];
+vector<pair<ll,pair<int,ll> > > V;
+ 
+ll get_root(ll node){
+ 
+	if(node == root_node[node]) 
+	    return node;
+ 
+	return root_node[node] = get_root(root_node[node]);
 }
-void Graph::AddEdge(int u, int v, int w){
-    G.push_back(make_pair(w, edge(u, v)));
+ 
+void input(ll *x){
+    (*x) = 0;
+    register ll c = gc();
+    for( ; c > 57 || c < 48; c = gc());
+    for( ; c > 47 && c < 58; c = gc())
+    (*x)= (*x) * 10 + c - '0';
 }
-int Graph::find_set(int i) {
-  // If i is the root of itself
-    if (i == root[i])
-        return i;
-    else
-    // Else if i is not the root of itself
-    // Then i is not the representative of his set,
-    // so we recursively call Find on its root
-        return find_set(root[i]);
-}
-
-void Graph::union_set(int u, int v) {
-    root[u] = root[v];
-}
-void Graph::kruskal() {
-    int i, uRep, vRep;
-    sort(G.begin(), G.end());  // increasing weight
-    for (i = 0; i < G.size(); i++) {
-        uRep = find_set(G[i].second.first);
-        vRep = find_set(G[i].second.second);
-        if (uRep != vRep) {
-            T.push_back(G[i]);  // add to tree
-            union_set(uRep, vRep);
-        }
-    }
-}
-void Graph::print() {
-    int res = 0;
-    for (int i = 0; i < T.size(); i++) {
-        res+=T[i].first;
-    }
-    cout<< -1 * res<<endl;
-}
-
-
-int main() {
-    int N, D;
+ 
+int main(){
+    ll N, D;
     cin>>N>>D;
-    vector<int> v;
-    int V = N, E = N * (N - 1) / 2;
-    Graph g(N);
-    for(int i = 0; i < N; i++){
-        int temp = 0;
-        for(int j = 0; j < D; j++){
-            int k;
+    vector<ll> Check;
+    ll temp = 0;
+    for(ll i = 0; i < N; i++){
+        for(ll j = 0; j < D; j++){
+            ll k;
             cin>>k;
             temp += k;
         }
-        v.push_back(temp);
+        Check.push_back(temp);
     }
-    for(int i = 0; i < N - 1; i++){
-        for(int j = i + 1; j < N; j++){
-            g.AddEdge(i, j, -1 * abs(v[i] - v[j]));
+    V.clear();
+    for(ll i = 0; i < N + 1; i++){
+		root_node[i] = i;
+	}
+    for(ll i = 0; i < N; i++){
+        for(ll j = i + 1; j < N; j++){
+            V.pb(mp(abs(Check[i] - Check[j]), mp(i, j)));
         }
     }
-    g.kruskal();
-    g.print();
-	return 0;
+    sort(V.begin(), V.end());
+	reverse(V.begin(), V.end());
+	ll ans = 0;
+    for(auto it : V){
+	    ll w = it.first;
+	    ll u = it.second.first;
+	    ll v =  it.second.second;
+        ll root_u = get_root(u);
+	    ll root_v = get_root(v);
+	    if(root_u != root_v){
+		    root_node[root_u] = root_v;
+		    ans += w;
+		}
+	}
+	cout<<ans<<'\n';
+    return 0;
 }
