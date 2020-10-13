@@ -2,13 +2,12 @@
 using namespace std;
  
 #define ll long long
-#define MAX 100005
+#define MAX 200000
 #define pb push_back
 #define mp make_pair
-#define gc getchar_unlocked
  
 ll root_node[MAX];
-vector<pair<ll,pair<int,ll> > > V;
+vector<pair<ll, pair<int, ll> > > V;
  
 ll get_root(ll node){
  
@@ -16,14 +15,6 @@ ll get_root(ll node){
 	    return node;
  
 	return root_node[node] = get_root(root_node[node]);
-}
- 
-void input(ll *x){
-    (*x) = 0;
-    register ll c = gc();
-    for( ; c > 57 || c < 48; c = gc());
-    for( ; c > 47 && c < 58; c = gc())
-    (*x)= (*x) * 10 + c - '0';
 }
  
 int main(){
