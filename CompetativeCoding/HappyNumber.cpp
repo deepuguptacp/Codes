@@ -16,7 +16,7 @@ bool isHappy(int n) {
     do{
         slow = numSquareSum(slow);
         fast = numSquareSum(numSquareSum(fast));
-    } while(slow != fast);
+    }while(slow != fast);
     return (slow == 1);
 }
 
