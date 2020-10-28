@@ -19,6 +19,30 @@ bool isHappy(int n) {
     }while(slow != fast);
     return (slow == 1);
 }
+// Second method
+bool ishappy(int n){
+    int sum = n;
+    int temp = n;
+    while(sum > 9){
+        if(sum == 7 || sum == 1){
+            return true;
+        } else {
+            sum = 0;
+            while(temp){
+                sum += pow(temp%10, 2);
+                temp /= 10;
+            }
+            if(sum == 1){
+                return true;
+            }
+            temp = sum;
+        }
+    }
+    if(sum == 1 || sum == 7){
+        return true;
+    }
+    return false;
+}
 
 int main(){
     int n;
