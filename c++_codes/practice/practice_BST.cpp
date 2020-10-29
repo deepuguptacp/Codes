@@ -28,9 +28,17 @@ int main(){
         cout<<"\n0. EXIT\n1. INSERT\n2. PRINT\nYour choice : ";
         cin>>operation;
         switch(operation){
-            case 0: print_in_order(root);cout<<"\n\n";exit(1);
-            case 1: cout<<"Enter the data : "; cin>>value; temp = create_node(value); insert(root, temp);break;
-            case 2: print_in_order(root);break;
+            case 0: 
+                print_in_order(root);
+                cout<<"\n\n";
+                exit(1);
+            case 1: cout<<"Enter the data : ";
+                cin>>value; 
+                temp = create_node(value);
+                insert(root, temp);
+                break;
+            case 2: print_in_order(root);
+            break;
             default : cout<<"\nPlease give a valid input.\n";
         }
     }
