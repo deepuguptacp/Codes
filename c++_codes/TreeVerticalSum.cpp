@@ -15,53 +15,41 @@ Node* newNode(int data){
 	temp->data = data; 
 	temp->left = temp->right = NULL; 
 	return temp;
-} 
+}
 // Traverses the tree in in-order form and 
 // populates a hashMap that contains the 
 // vertical sum 
 void verticalSumUtil(Node *node, int hd, map<int, int> &Map){
-	// Base case
 	if (node == NULL)
         return;
-	// Recur for left subtree 
+
 	verticalSumUtil(node->left, hd-1, Map);
-	// Add val of current node to 
-	// map entry of corresponding hd
 
 	Map[hd] += node->data;
-
-	// Recur for right subtree 
+	
 	verticalSumUtil(node->right, hd+1, Map); 
-} 
-
-// Function to find vertical sum 
-void verticalSum(Node *root){
-	// a map to store sum of nodes for each 
-	// horizontal distance 
-	map<int, int> Map;
-	map<int, int> :: iterator it; 
-
-	// populate the map 
-	verticalSumUtil(root, 0, Map); 
-
-	// Prints the values stored by VerticalSumUtil() 
-	for (it = Map.begin(); it != Map.end(); ++it){
-		cout<< it->second<<" ";
-    }
-    cout<<endl;
 } 
 
 // Driver program to test above functions 
 int main(){
 	// Create binary tree as shown in above figure 
 	Node *root = newNode(1); 
-	root->left = newNode(2); 
+	root->left = newNode(2);
 	root->right = newNode(3);
 	root->right->left = newNode(5); 
 	root->right->right = newNode(6); 
 	root->right->left->left = newNode(7); 
 	root->right->left->right = newNode(8);
-	verticalSum(root);
-    
+
+	map<int, int> Map;
+	map<int, int> :: iterator it;
+
+	verticalSumUtil(root, 0, Map);
+
+	for (it = Map.begin(); it != Map.end(); ++it){
+		cout<< it->second<<" ";
+    }
+    cout<<endl;
+
 	return 0; 
 }
