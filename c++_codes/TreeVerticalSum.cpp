@@ -47,7 +47,7 @@ int main(){
 	verticalSumUtil(root, 0, Map);
 
 	for (it = Map.begin(); it != Map.end(); ++it){
-		cout<< it->second<<" ";
+		cout<<it->first<<"\t"<<it->second<<"\n";
     }
     cout<<endl;
 
