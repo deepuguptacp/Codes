@@ -61,6 +61,35 @@ void postOrder(struct node* root){
     cout<<root->val<<" ";
 }
 
+vector<vector<int> > verticalOrderTraversal(struct node* A) {
+    vector<vector<int> > v;
+    if(A == NULL)
+        return v;
+    queue<pair <struct node*, int> > q;
+    q.push(make_pair(A, 0));
+    
+    map<int, vector<int> > mp;
+    while(!q.empty()){
+        pair<struct node*, int> 
+        temp = q.front();
+        q.pop();
+        
+        if(temp.first->left){
+            q.push(make_pair(temp.first->left, temp.second - 1));
+        }
+        if(temp.first->right){
+            q.push(make_pair(temp.first->right, temp.second + 1));
+        }
+        
+        mp[temp.second].push_back(temp.first->val);
+    }
+    map<int, vector<int> >::iterator it;
+    for(it = mp.begin(); it != mp.end(); it++){
+        v.push_back(it->second);
+    }
+    return v;
+}
+
 void verticalOrderSUM(struct node* root, int h, map<int, int> &mp){
     if(root == NULL){
         return;
@@ -100,7 +129,19 @@ int main(){
     cout<<"\n\nPOSTORDER---------------\n";
     postOrder(root);
 
-    cout<<"\n\nVERTICAL ORDER SUM---------------\n";
+    cout<<"\n\nVERTICAL ORDER---------------\n";
+    cout<<"\n\n-------TRAVERSAL-----------\n";
+
+    vector<vector<int> > res = verticalOrderTraversal(root);
+    for(int i = 0; i < res.size(); i++){
+        cout<<"[ ";
+        for(int j = 0; j < res[i].size(); j++){
+            cout<<res[i][j]<<", ";
+        }
+        cout<<"]"<<endl;
+    }
+
+    cout<<"\n\n-------SUM-----------\n";
     map<int, int> mp;
     verticalOrderSUM(root, 0, mp);
     map<int, int> :: iterator it;
