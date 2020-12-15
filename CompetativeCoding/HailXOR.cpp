@@ -1,65 +1,44 @@
-#include <bits/stdc++.h>
+#include<bits/stdc++.h>
 using namespace std;
-#define ll long long
-
-vector<vector<int> > v(32);
-
-int higher(int ind, int val){
-    int ans =- 1, i = 0, j = v[ind].size() - 1;
-    while(i <= j){
-        int mid = (i + j) / 2;
-        if(v[ind][mid] >= val){
-            ans = v[ind][mid];
-            j = mid - 1;
-        } else {
-            i = mid + 1;
-        }
-    }
-    return ans;
-}
 
 int main(){
-    int t;
-    cin>>t;
-    while(t--){
-        int n, x;
+    long long int tc,n,x,z,a[1000000];
+    cin>>tc;
+    while(tc--){
         cin>>n>>x;
-        int A[n];
-        for(int i = 0; i < n; i++){
-            cin>>A[i];
-        }
-        // int list[32];
-        // for(int i = 0; i <= 31; i++){
-        //     list[i] = new int();
-        // }
-        for(int j = 0; j <= 31; j++){
-            for(int i = 0; i < n; i++){
-                int bit = (A[i] >> j) & 1;
-                if(bit == 1){
-                    v[j].push_back(i);
+        for(long long int i = 0; i < n; i++)
+            cin>>a[i];
+        long long int i = 0;
+        for(long long int k = x; k > 0 && i < n-1; k--){
+            bool flag = 0;
+            long long int p = log(a[i]) / log(2);
+            long long int r = 1 << p;
+            a[i] = a[i] ^ r;
+            for(long long int j = i + 1; j < n; j++){
+                if((a[j] ^ r) < a[j]){
+                    a[j] = a[j] ^ r;
+                    flag = 1;
+                    break;
                 }
             }
-       }
-        for(int i = 0; i < (n - 1) && x > 0; i++){
-            for(int j = 31; j >= 0 && x > 0; j--){
-                int bit = (A[i] >> j) & 1;
-                if(bit == 1){
-                    int hIndex = higher(j, i + 1);
-                    hIndex = (hIndex == -1) ? (n - 1) : hIndex;
-                    A[i] ^= (1 << j);
-                    A[hIndex] ^= (1 << j);
-                    --x;
-                }
+            if(flag == 0){
+                a[n - 1] = a[n - 1] ^ r;
+            }
+            while(a[i] <= 0){
+                i++;
+            }
+            z = k + 1;
+        }
+        if(z > 0){
+            if((n < 3) && (z % 2 > 0) && z > 0){
+                a[n - 1] = a[n - 1] ^ 1;
+                a[n - 2] = a[n - 2] ^ 1;
             }
         }
-        if(x % 2 == 1 && n == 2){
-            A[n - 1] ^= 1;
-            A[n - 2] ^= 1;
-        }
         for(int i = 0; i < n; i++){
-            cout<<A[i]<<" ";
+            cout << a[i] << " ";
         }
-        cout<<endl;
+        cout << endl;
     }
     return 0;
 }
