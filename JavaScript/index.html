@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1>Hello!</h1>
+    <h2>Stopwatch </h2>
+    <div class="container">
+        <button type="button" onclick="document.getElementById('demo').innerHTML = Date()">
+            Click me to display Date and Time.</button>
+        <p id="demo"></p>
+    </div>
+    <div class="container">
+        <button id="mybutton" class="btn btn-primary">Fetch data</button>
+        <div id="content"></div>
+    </div>
+    <!-- Javascript should always be at the end of body section for best practice -->
+    <!-- <script src = "index.js"></script>  -->
+    <!-- <script src = "stopwatch.js"></script> -->
+    <script src="FetchAPI.js"></script>
+</body>
+
+</html>
