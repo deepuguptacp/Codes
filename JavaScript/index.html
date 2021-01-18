@@ -1,15 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-</head>
+  </head>
 
-<body>
-    <h1>Hello!</h1>
-    <h2>Stopwatch </h2>
+  <body>
+    <!-- <h1>Hello!</h1> -->
+    <!-- <h2>Stopwatch </h2>
     <div class="container">
         <button type="button" onclick="document.getElementById('demo').innerHTML = Date()">
             Click me to display Date and Time.</button>
@@ -18,11 +17,43 @@
     <div class="container">
         <button id="mybutton" class="btn btn-primary">Fetch data</button>
         <div id="content"></div>
-    </div>
+    </div> -->
     <!-- Javascript should always be at the end of body section for best practice -->
     <!-- <script src = "index.js"></script>  -->
     <!-- <script src = "stopwatch.js"></script> -->
-    <script src="FetchAPI.js"></script>
-</body>
-
+    <!-- <script src="FetchAPI.js"></script> -->
+    <script src="usingFilter.js"></script>
+  </body>
 </html>
+<!--  Form Selector.....
+<form name="selectForm">
+    <p>
+      <label for="musicTypes">Choose some music types, then click the button below:</label>
+      <select id="musicTypes" name="musicTypes" multiple="multiple">
+        <option>R&B</option>
+        <option>Jazz</option>
+        <option>Blues</option>
+        <option>New Age</option>
+        <option>Classical</option>
+        <option>Opera</option>
+      </select>
+    </p>
+    <p><input id="btn" type="button" value="How many are selected?" /></p>
+  </form>
+  
+  <script>
+  function howMany(selectObject) {
+    let numberSelected = 0;
+    for (let i = 0; i < selectObject.options.length; i++) {
+      if (selectObject.options[i].selected) {
+        numberSelected++;
+      }
+    }
+    return numberSelected;
+  }
+  
+  let btn = document.getElementById('btn');
+  btn.addEventListener('click', function() {
+    alert('Number of options selected: ' + howMany(document.selectForm.musicTypes));
+  });
+  </script> -->

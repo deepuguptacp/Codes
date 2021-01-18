@@ -14,38 +14,42 @@ let content = document.getElementById("content");
 // }
 
 function getData() {
-    url = "https://api.github.com/users/2";
-    fetch(url).then((response) => {
-        return response.json();
-    }).then((data) => {
-        console.log('Success', data);
+  url = "https://api.github.com/users/2";
+  fetch(url)
+    .then((response) => {
+      return response.json();
     })
-        .catch((error) => {
-            console.log('ERROR:', error);
-        })
+    .then((data) => {
+      console.log("Success", data);
+    })
+    .catch((error) => {
+      console.log("ERROR:", error);
+    });
 }
 
 getData();
 // FOR POST DATA        problem in understanding this......
 function postData() {
-    url = "http://dummy.restapiexample.com/api/v1/create";
-    data = '{"name":"Deepu Gupta","salary":"20000","age":"22"}'         // Q1 :- unidata or multi data posting?? ANS :- can be multi data 
-    params = {                                                         // using a for loop to convert the data in an array string as : 
-        method: 'post',                                                 // Line 50 :- 
-        mode: 'cors',
-        headers: {
-            'Content-type': 'application/x-www-form-urlencoded'    // Q2 :- when the content type is changed?? Line :- 59
-        },
-        body: data                  // data is already a string hence no need to stringify using json.stringify(data)
-    }
-    fetch(url, params).then((response) => {
-        return response.json();
-    }).then((data) => {
-        console.log(data);
+  url = "http://dummy.restapiexample.com/api/v1/create";
+  data = '{"name":"Deepu Gupta","salary":"20000","age":"22"}'; // Q1 :- unidata or multi data posting?? ANS :- can be multi data
+  params = {
+    // using a for loop to convert the data in an array string as :
+    method: "post", // Line 50 :-
+    mode: "cors",
+    headers: {
+      "Content-type": "application/x-www-form-urlencoded", // Q2 :- when the content type is changed?? Line :- 59
+    },
+    body: data, // data is already a string hence no need to stringify using json.stringify(data)
+  };
+  fetch(url, params)
+    .then((response) => {
+      return response.json();
     })
+    .then((data) => {
+      console.log(data);
+    });
 }
 postData();
-
 
 /** ANS 1 :-
  *      const data = new data();
@@ -63,10 +67,5 @@ postData();
  * text/plain - A new form type introduced in HTML5, that as the name suggests, simply sends the data without any encoding
  */
 
-
 // syntax for update
 // mediaKeySession.update(response).then(function() { ... });
-
-
-
-
