@@ -1,0 +1,88 @@
+h1 {
+  width: 400px;
+  margin: 0 auto;
+  background: gray;
+  text-align: center;
+}
+h2 {
+  width: 150px;
+  background: gray;
+  text-align: center;
+}
+.sheet {
+  background-color: rgb(75, 75, 69);
+}
+.grid-container {
+  height: 50vw;
+  display: grid;
+  grid-template-columns: 0.4fr 0.4fr;
+  grid-gap: 100px;
+  width: 100%;
+}
+.container {
+  height: 61vh;
+  width: 180%;
+  display: flex;
+  justify-content: center;
+  align-items: left;
+}
+.container .accordion {
+  width: 30%;
+  height: auto;
+  display: flex;
+  flex-direction: column;
+}
+
+.container .accordion .initialiseAccordion button {
+  display: block;
+  padding: 20px 20px;
+  width: 100%;
+  background-color: aquamarine;
+  font-size: 18px;
+  text-align: left;
+  border: none;
+  outline: none;
+  transition: 0.3s ease;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+}
+.container .accordion .initialiseAccordion .accordion-content {
+  height: 0;
+  display: blocks;
+  background-color: beige;
+  overflow: hidden;
+  transition: 0.3s ease height;
+}
+.container .accordion .initialiseAccordion .accordion-content p {
+  margin-bottom: 50px;
+}
+.container .accordion .initialiseAccordion.active button,
+.container .accordion .initialiseAccordion button:hover {
+  background-color: rgb(43, 138, 106);
+}
+.container .accordion .initialiseAccordion button .icon {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  display: block;
+}
+.container .accordion .initialiseAccordion button .icon::before,
+.container .accordion .initialiseAccordion button .icon::after {
+  content: "";
+  position: absolute;
+  right: 0;
+  height: 2px;
+  width: 15px;
+  background-color: rgb(0, 0, 0);
+  transform-origin: center;
+  transition: 0.3s ease transform;
+}
+.container .accordion .submit {
+  background-color: rgb(30, 207, 30);
+  cursor: pointer;
+  padding: 10px;
+  align-items: center;
+  width: 80px;
+}

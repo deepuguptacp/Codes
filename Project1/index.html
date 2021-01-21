@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="index.css" />
+    <title>Accordion and Bar Chart</title>
+  </head>
+  <body class="sheet">
+    <h1>Accordion and Bar Chart</h1>
+    <hr color="black" width="450" />
+    <div class="grid-container">
+      <div class="grid-child">
+        <div class="container">
+          <div class="accordion">
+            <h2>Accordion</h2>
+            <div class="initialiseAccordion">
+              <button>Personal Information</button>
+              <div class="accordion-content">
+                <fieldset>
+                  <p>
+                    <label for="cufc1">
+                      Name :
+                      <input type="text" value="" name="Name" id="cufc1" />
+                    </label>
+                  </p>
+                  <p>
+                    <label for="cufc2">
+                      Number :
+                      <input type="text" value="" name="Phone" id="cufc2" />
+                    </label>
+                  </p>
+                  <p>
+                    <label for="cufc3">
+                      Email :
+                      <input type="text" value="" name="Email" id="cufc3" />
+                    </label>
+                  </p>
+                </fieldset>
+              </div>
+            </div>
+            <div class="initialiseAccordion">
+              <button>Temporary Address</button>
+              <div class="accordion-content">
+                <fieldset>
+                  <p>
+                    <label for="cufc4">
+                      Vill :
+                      <input type="text" value="" name="Name" id="cufc4" />
+                    </label>
+                  </p>
+                  <p>
+                    <label for="cufc5">
+                      Distt :
+                      <input type="text" value="" name="Name" id="cufc5" />
+                    </label>
+                  </p>
+                  <p>
+                    <label for="cufc6">
+                      PinCode :
+                      <input type="text" value="" name="Number" id="cufc6" />
+                    </label>
+                  </p>
+                </fieldset>
+              </div>
+            </div>
+            <div class="initialiseAccordion">
+              <button>Permanent Address</button>
+              <div class="accordion-content">
+                <fieldset>
+                  <p>
+                    <label for="cufc7">
+                      Vill :
+                      <input type="text" value="" name="Name" id="cufc7" />
+                    </label>
+                  </p>
+                  <p>
+                    <label for="cufc8">
+                      Distt :
+                      <input type="text" value="" name="Name" id="cufc8" />
+                    </label>
+                  </p>
+                  <p>
+                    <label for="cufc9">
+                      PinCode :
+                      <input type="text" value="" name="Number" id="cufc9" />
+                    </label>
+                  </p>
+                </fieldset>
+              </div>
+            </div>
+            <button class="submit">Submit</button>
+          </div>
+        </div>
+      </div>
+      <div class="grid-child">
+        <div class="container">
+          <div class="accordion">
+            <h2>Bar Chart</h2>
+            <canvas id="myCanvas"></canvas>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script src="accordion.js"></script>
+    <script src="barChart.js"></script>
+  </body>
+</html>
