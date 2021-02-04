@@ -16,8 +16,6 @@ function drawBar(
 ) {
   ctx.fillStyle = color;
   ctx.fillRect(upperLeftCornerX, upperLeftCornerY, width, height);
-  ctx.fillStyle = "rgb(75, 75, 69)";
-  ctx.fillRect(upperLeftCornerX, upperLeftCornerY, 5, 150);
 }
 class Barchart {
   constructor(options) {
@@ -54,7 +52,7 @@ class Barchart {
           this.ctx,
           this.options.padding + barIndex * barSize + 18,
           this.canvas.height - barHeight - this.options.padding,
-          barSize,
+          barSize - 5,
           barHeight,
           this.colors[barIndex % this.colors.length]
         );
